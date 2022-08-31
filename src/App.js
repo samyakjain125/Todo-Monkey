@@ -1,6 +1,7 @@
 
 import React, {useState, useEffect  } from 'react'
 import AddTodo from './Components/AddTodo';
+import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import Todos from './Components/Todos';
 
@@ -62,7 +63,7 @@ function App() {
     <AddTodo addTodo={addTodo} mode={mode}/>
     {/* <hr className='container' style={{ "height":"3px", "backgroundColor": "#00000078", "border":"0px","borderRadius":"22px"}}/> */}
     <Todos todos={todos} onDelete={onDelete} mode={mode} />
-    {/* Samyak Jain is here! */}
+    <Footer/>
 
     </div>
   );
