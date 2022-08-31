@@ -5,35 +5,33 @@ import Navbar from './Components/Navbar';
 import Todos from './Components/Todos';
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      sno: 0,
-      title: "sam",
-      desc:"go to temple"
-    },
-    {
-      sno: 1,
-      title: "sam",
-      desc:"go to temple"
-    },
-    {
-      sno: 2,
-      title: "sam",
-      desc:"go to temple"
-    },
-    {
-      sno: 3,
-      title: "sam",
-      desc:"go to temple"
-    },
-  ]);
+  let initTodo;
+  if(localStorage.getItem("todos")===null){
+    initTodo = []
+  }
+  else{
+    initTodo= JSON.parse(localStorage.getItem("todos"))
+  }
+  const [todos, setTodos] = useState(initTodo);
   const addTodo = (title, desc) =>{
     console.log("newTodo => "+ title +" and "+desc)
+    // console.log(todos.length)
+    let sno;
+    if(todos.length ===0){
+      sno =1
+    }
+    else{
+      sno = todos[todos.length -1].sno +1
+    }
+    console.log("sno >>> " + sno);
     const newTodo ={
+      sno : sno,
       title: title,
       desc: desc
     }
     console.log(newTodo)
+    setTodos([...todos, newTodo])
+    // localStorage.setItem("todos", JSON.stringify(todos))
     
   }
   const onDelete=(todo)=>{
@@ -43,6 +41,10 @@ function App() {
       return e!==todo;
     }))
   }
+  useEffect(()=>{
+    localStorage.setItem("todos", JSON.stringify(todos))
+  },[todos])
+
   // console.log("trytodo")
   // console.log(todos)
   return (

@@ -20,6 +20,8 @@ export default function AddTodo(props) {
         }
         else{
             props.addTodo(title, desc);
+            setTitle("")
+            setDesc("")
         }
     }
   return (
