@@ -12,11 +12,13 @@ export default function Navbar(props) {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className={`nav-link active text-${props.mode==="light"?"dark":"light"}`} aria-current="page" href="#">Home</a>
+          {/* <a className={`nav-link active text-${props.mode==="light"?"dark":"light"}`} aria-current="page" href="#">Home</a> */}
+          
         </li>
         
         
       </ul>
+      <a href="https://github.com/samyakjain2431/Todo-Monkey" target="blank" rel="noopener noreferrer" style={{"padding": "6px 16px","marginRight":"15px", "backgroundColor":"#373737cc","boxShadow":"1px 1px 5px #808080b0", "color": "white","borderRadius":"42px", "textDecoration":"none"}}>{`</> Code`}</a>
       <a href="https://samyakjain.super.site" target="blank" rel="noopener noreferrer" style={{"padding": "6px 16px","marginRight":"15px", "backgroundColor":"#932cff", "color": "white","borderRadius":"42px", "textDecoration":"none"}}>Made by Samyak Jain</a>
       <div className="form-check form-switch">
         <input className="form-check-input" type="checkbox" role="switch" onClick={props.toggleMode} id="flexSwitchCheckDefault" />
