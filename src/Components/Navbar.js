@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Navbar(props) {
   return (
-    <div>
-      <nav className={`navbar navbar-expand-lg bg-${props.mode}`}>
-    <div className="container-fluid">
+    <div className='position-fixed'>
+      <nav className={`navbar navbar-expand-lg bg-${props.mode}`} style={{position:"fixed", width: "100%", top: "0px"}}>
+    <div className="container-fluid" >
     <a  className={`navbar-brand text-${props.mode==="light"?"dark":"light"}`} href="#">Todo Monkey</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>

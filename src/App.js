@@ -60,7 +60,7 @@ function App() {
     <div >
     <Navbar mode={mode} toggleMode={toggleMode} />
     <AddTodo addTodo={addTodo} mode={mode}/>
-    {/* <hr className='container'/> */}
+    {/* <hr className='container' style={{ "height":"3px", "backgroundColor": "#00000078", "border":"0px","borderRadius":"22px"}}/> */}
     <Todos todos={todos} onDelete={onDelete} mode={mode} />
     {/* Samyak Jain is here! */}
 
