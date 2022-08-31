@@ -14,8 +14,7 @@ function App() {
   }
   const [todos, setTodos] = useState(initTodo);
   const addTodo = (title, desc) =>{
-    console.log("newTodo => "+ title +" and "+desc)
-    // console.log(todos.length)
+    console.log("newTodo => \n"+ title +"\n "+desc)
     let sno;
     if(todos.length ===0){
       sno =1
@@ -45,14 +44,24 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(todos))
   },[todos])
 
-  // console.log("trytodo")
-  // console.log(todos)
+  const [mode, setMode] = useState("light");
+  const toggleMode = () =>{
+    if(mode === "light"){
+      setMode("dark");
+      document.body.style.backgroundColor = "rgb(33 37 41 / 85%)"
+    }
+    else{
+      setMode("light");
+      document.body.style.backgroundColor = "white"
+    }
+  }
+
   return (
     <div >
-    <Navbar/>
-    <AddTodo addTodo={addTodo}/>
+    <Navbar mode={mode} toggleMode={toggleMode} />
+    <AddTodo addTodo={addTodo} mode={mode}/>
     {/* <hr className='container'/> */}
-    <Todos todos={todos} onDelete={onDelete} />
+    <Todos todos={todos} onDelete={onDelete} mode={mode} />
     {/* Samyak Jain is here! */}
 
     </div>
